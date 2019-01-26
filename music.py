@@ -1,6 +1,27 @@
 from tkinter import *		#importing tkinter
 from pygame import mixer	#importing mixer from pygame
+
 root = Tk()					#intializing the tkinter window
+
+menubar = Menu(root)
+root.config(menu = menubar)
+
+subMenu = Menu(menubar,tearoff=0)
+menubar.add_cascade(label="File",menu=subMenu)
+
+subMenu.add_command(label="Open")
+subMenu.add_command(label="Exit")
+
+
+subMenu = Menu(menubar,tearoff=0)
+menubar.add_cascade(label="Help")
+subMenu.add_command(label="About")
+
+
+
+
+
+
 
 mixer.init() 				#initializing the mixer
 root.geometry("400x400")
