@@ -1,6 +1,13 @@
 from tkinter import *		#importing tkinter
 from pygame import mixer	#importing mixer from pygame
 import tkinter.messagebox   # importing the messagebox to show messages
+from tkinter import filedialog #importing filedialog to open files
+
+
+
+
+
+
 root = Tk()					#intializing the tkinter window
 
 menubar = Menu(root)
@@ -9,7 +16,11 @@ root.config(menu = menubar)
 subMenu = Menu(menubar,tearoff=0)
 menubar.add_cascade(label="File",menu=subMenu)
 
-subMenu.add_command(label="Open")
+def browse_file():
+	global filename
+	filename = filedialog.askopenfilename()
+
+subMenu.add_command(label="Open",command=browse_file)
 subMenu.add_command(label="Exit")
 
 
@@ -46,7 +57,7 @@ textlabel = Label(root,text = "Ambition is my drug, Success is the only cure")
 textlabel.pack()
 
 def play():				# defining play function
-	mixer.music.load("a.wav")
+	mixer.music.load(filename)
 	mixer.music.play()
 
 
@@ -67,7 +78,7 @@ def volume(val):		# defining volume function
 
 scale = Scale(root,from_=0, to=100,orient=HORIZONTAL,command=volume )
 scale.set(40)  # setting default volume
-mixer.music.set_volume(40)
+mixer.music.set_volume(0.4)
 scale.pack()
 
 
