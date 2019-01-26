@@ -1,6 +1,6 @@
 from tkinter import *		#importing tkinter
 from pygame import mixer	#importing mixer from pygame
-
+import tkinter.messagebox   # importing the messagebox to show messages
 root = Tk()					#intializing the tkinter window
 
 menubar = Menu(root)
@@ -13,9 +13,17 @@ subMenu.add_command(label="Open")
 subMenu.add_command(label="Exit")
 
 
+def about_player():
+	tkinter.messagebox.showinfo("Get the code ", "from : https://github.com/enigma-112/Music-Player-Using-Tkinter")
+
+
+
 subMenu = Menu(menubar,tearoff=0)
-menubar.add_cascade(label="Help")
-subMenu.add_command(label="About")
+menubar.add_cascade(label="Help",menu=subMenu)
+subMenu.add_command(label="About",command=about_player)
+
+
+
 
 
 
