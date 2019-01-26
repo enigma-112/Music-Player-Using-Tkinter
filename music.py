@@ -38,6 +38,7 @@ def volume(val):		# defining volume function
 
 scale = Scale(root,from_=0, to=100,orient=HORIZONTAL,command=volume )
 scale.set(40)  # setting default volume
+mixer.music.set_volume(40)
 scale.pack()
 
 
